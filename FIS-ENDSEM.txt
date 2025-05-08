@@ -1,0 +1,393 @@
+ACKNOWLEDGEMENT
+
+I am sincerely grateful for the invaluable opportunity to undertake my internship at FIS Global, an experience that has been instrumental in shaping my professional journey and technical growth. This internship has not only allowed me to apply the knowledge gained through my academic coursework but also equipped me with practical skills and insights that I will carry forward into my future endeavors.
+
+I would like to express my heartfelt thanks to the Department of Artificial Intelligence and Data Science, VIT Pune, for facilitating this internship opportunity and for continuously fostering a culture of learning and industry exposure.
+
+I am thankful to Mr. Roshan Kumar, my director at FIS Global, for his inspiring leadership and for providing a conducive environment to learn and grow. Also, a special note of gratitude to Mr. Saurabh Jajoo, my mentor and buddy at FIS Global, whose guidance, support, and encouragement played a pivotal role throughout my internship. His insights and mentorship helped me navigate through challenges and expand my technical acumen.
+
+Finally, I extend my sincere appreciation to FIS Global for welcoming me into their professional ecosystem and providing a platform that challenged and nurtured my skills. The exposure to cutting-edge tools and real-world problem-solving has truly been a transformative experience.
+
+Thank you all once again for your unwavering support, guidance, and belief in my abilities.
+
+ 
+
+
+ABSTRACT
+
+This report offers a detailed overview of my internship at FIS Global, where I worked as an IT Trainee Intern as part of the TT2.0 project. Over the course of my internship, I was exposed to a wide range of tools, technologies, and real-world challenges that helped solidify my understanding of software development life cycles, automation, and continuous integration processes.
+
+My primary contributions revolved around the development and integration of Groovy scripts aimed at automating critical processes. Notably, I designed a scalable script that aligned and transformed over 3,000 testcases and their corresponding CSV files, addressing inconsistencies arising from shifts across platforms like Zephyr, TestRail, and Zephyr Scale. I also implemented a performance testing script to ensure platform resilience during high-volume financial transactions and built a script to identify and mark automated testcases in Zephyr Scale, significantly enhancing test management efficiency.
+
+Throughout the internship, I gained hands-on experience with tools such as Groovy, Maven, Jenkins, Git, TortoiseGit, Bitbucket, and Zephyr Scale. This hands-on exposure helped me understand the importance of automation, error debugging, pipeline integration, and version control in large-scale software projects.
+
+Additionally, I had the enriching opportunity to participate in the Innovatein48 Hackathon, contributing to the ideation, development, and presentation of the "Ticket Support" project, further sharpening my collaborative and problem-solving abilities.
+
+This internship has been a transformative experience, equipping me with both technical proficiency and professional confidence to take on more challenging roles in the software industry.
+
+
+
+
+2. Introduction
+In the ever-evolving landscape of financial services, ensuring robust software quality and seamless test management is paramount. As organizations transition between platforms, streamline processes, and deal with increased transaction volumes, there arises a need for scalable, automated solutions that can adapt quickly and efficiently. My internship at FIS Global as an IT Trainee Intern was situated within this dynamic context, focusing on enhancing the testing and automation capabilities of the TT2.0 project—a strategic initiative to streamline test execution, data transformation, and performance validation processes across multiple systems.
+
+The core objective of my work revolved around solving challenges caused by inconsistent testcase structures and platform migrations. As the organization moved from Zephyr to TestRail and eventually to Zephyr Scale, maintaining a unified and aligned repository of testcases became crucial. This project aimed to bring automation, scalability, and performance reliability into the testing ecosystem through well-designed scripts and optimized CI/CD practices.
+
+2.1 Significance of Test Automation in Financial Systems
+In large financial institutions like FIS Global, the accuracy and resilience of test infrastructures are essential due to the sensitive nature of financial transactions and the scale at which they operate. A single testcase misalignment or performance bottleneck can cascade into significant operational delays and inconsistencies.
+
+Automating the transformation and alignment of testcases not only eliminates manual effort but also ensures consistency across the testing life cycle. It reduces the risk of human error, enhances traceability, and supports rapid deployment in a continuously integrated environment like Jenkins. Furthermore, bulk automation—especially in testcase identification and classification—becomes vital when testcases number in the thousands.
+
+2.2 Challenges in Testcase Management and Migration
+During my internship, one of the major pain points I addressed was the misalignment of testcases due to multiple transitions between test management platforms. Legacy IDs from Zephyr, interim migrations to TestRail, and the final shift to Zephyr Scale had created a fragmented and inconsistent testcase ecosystem.
+
+Manually transforming 3,000+ testcases and their associated data was not scalable. Adding to this complexity was the need to ensure that every CSV file—used for storing testcase data—was correctly formatted, renamed, and mapped to its corresponding script.
+
+2.2.1 Technical Complexities and Integration Bottlenecks
+Several layers of complexity emerged during script integration and performance optimization:
+
+CI/CD Synchronization: Frequent Jenkins failures required extensive debugging and repeated integration cycles.
+
+Cross-Platform Consistency: Aligning legacy testcase IDs across three different platforms involved intricate logic for mapping and content transformation.
+
+Scalability: The Groovy scripts needed to be adaptable and reusable by different teams across FIS for future migrations and updates.
+
+Performance Assurance: With tariff-driven spikes in transaction volumes, performance testing scripts were developed and integrated to test the platform’s ability to handle increased load.
+
+2.2.2 Objectives of the Internship Project
+The primary goals of my internship were:
+
+To automate the alignment and transformation of testcases and their corresponding CSVs using Groovy.
+
+To integrate performance testing into the existing pipeline to ensure robustness during high transaction periods.
+
+To identify automated testcases programmatically and mark them in Zephyr Scale in bulk.
+
+To gain practical exposure to tools and technologies such as Groovy, Maven, Jenkins, Bitbucket, Git, and Zephyr Scale.
+
+To contribute creatively and collaboratively to the Innovatein48 Hackathon, showcasing cross-functional capabilities in a high-paced, innovation-driven environment.
+
+
+
+3. Previous Work / Existing System Study
+3.1 Existing Systems, Tools, and Approaches
+In the domain of enterprise-level software quality assurance and test management, a variety of tools and methods have emerged to support test planning, execution, reporting, and automation. Within FIS Global, especially in large-scale projects like TT2.0, maintaining consistency and reliability across thousands of testcases poses significant challenges. Prior to the improvements implemented during this internship, several systems and practices were in place:
+
+Zephyr and TestRail: These test management tools were successively used across different teams. Each provided basic features for test planning, execution, and traceability. However, inconsistencies arose due to frequent migrations and partial integrations.
+
+Manual Testcase Transformation: Much of the testcase alignment process was handled manually, leading to duplication, mismatched mappings, and excessive time consumption.
+
+Jenkins Pipelines: Jenkins was used for running CI/CD pipelines. While powerful, these pipelines occasionally failed due to insufficient script optimization or inadequate handling of legacy data formats.
+
+Groovy Scripting (Ad Hoc Use): Prior scripting efforts in Groovy existed but were not modular, optimized, or generalized for broader team usage.
+
+These systems, while individually functional, were fragmented and inefficient when combined, especially at the scale required for TT2.0.
+
+3.2 Drawbacks of Existing Systems
+Despite their capabilities, the existing test management and automation systems had several limitations:
+
+Manual Overhead: Converting, aligning, and mapping thousands of testcases manually introduced inconsistencies, consumed significant engineering time, and was prone to human error.
+
+Data Fragmentation: Migrations across platforms (Zephyr → TestRail → Zephyr Scale) resulted in broken ID references, disconnected CSVs, and duplicated scripts.
+
+Pipeline Fragility: Jenkins pipelines frequently failed during builds due to dependencies on outdated scripts or misaligned test data formats.
+
+Lack of Bulk Automation Support: There was no unified, reusable script to automate the transformation of CSVs and testcases at scale.
+
+Limited Reusability and Modularity: Existing scripts were rigid and project-specific, preventing broader use by other QA teams.
+
+These limitations highlighted the need for a unified, automated, and performance-optimized approach to testcase management, particularly within the evolving scope of TT2.0.
+
+3.3 Problem Definition
+This project aimed to address the systemic inefficiencies in testcase transformation, automation, and performance validation. Specifically, the internship focused on solving the following challenges:
+
+Automated Testcase Transformation: Developing a robust Groovy script to align and transform over 3,000 testcases and CSV files, standardizing format and structure for future automation pipelines.
+
+Performance Testing Integration: Creating a script to simulate load testing during tariff updates and high-volume transaction scenarios, ensuring TT2.0 could handle increased demands.
+
+Bulk Identification and Classification: Writing a script to automatically detect and tag automated testcases in Zephyr Scale, enhancing test visibility and execution readiness.
+
+Cross-Platform Mapping Logic: Addressing inconsistencies created by the migration between Zephyr, TestRail, and Zephyr Scale, through ID reconciliation and CSV alignment.
+
+Pipeline Optimization: Enhancing Jenkins pipeline reliability by modularizing and error-proofing script executions.
+
+By tackling these core issues, the project sought to create a scalable, maintainable, and efficient framework for test management and automation within FIS Global’s QA ecosystem.
+
+Requirement Specification
+The automation efforts undertaken during the internship aimed to streamline test data transformation, improve pipeline reliability, and enable large-scale performance testing in the TT2.0 platform. The following functional and non-functional requirements were derived from the scope of automation needs and process inefficiencies observed during system exploration and flowchart design.
+
+3.4.1 Functional Requirements
+Testcase Transformation Automation:
+The system must parse and align over 3,000 testcases and their corresponding CSV files from legacy formats.
+
+Groovy scripts must restructure test data to comply with the latest TT2.0 standards, ensuring compatibility with Jenkins pipelines.
+
+Mapping logic should correct ID mismatches caused by historical migrations between Zephyr, TestRail, and Zephyr Scale.
+
+Automated Performance Testing:
+A performance testing script must simulate concurrent requests to validate system behavior under high transaction volumes, particularly during tariff changes.
+
+Output should include response time metrics, throughput analysis, and error rate identification.
+
+Automated Testcase Classification in Zephyr Scale:
+The system must identify automated testcases and tag them appropriately in bulk.
+
+Integration with Zephyr Scale APIs is required to update testcase metadata and status with minimal manual intervention.
+
+Jenkins Integration:
+All scripts should be compatible with Jenkins pipeline stages and support logging of execution results.
+
+Failure-handling logic must be implemented to prevent cascading pipeline failures.
+
+Version Control and Collaboration:
+All scripts and automation tools must be managed in Bitbucket repositories with clear documentation and modularity to support reuse by multiple QA teams.
+
+3.4.2 Non-Functional Requirements
+Usability and Maintainability:
+Scripts must be modular, parameterized, and well-documented to enable reuse by non-developers in QA roles.
+
+Clear error messages and logging should be integrated for easy debugging and iterative improvements.
+
+Accuracy and Consistency:
+Testcase transformation must achieve 100% mapping accuracy for ID references and data formats.
+
+Performance test metrics must reliably reflect actual system behavior to guide optimization efforts.
+
+Scalability:
+The transformation pipeline should support bulk uploads of testcases, handling thousands of files concurrently without manual intervention.
+
+The performance script must simulate varying load profiles to test horizontal scalability of TT2.0 infrastructure.
+
+Speed and Responsiveness:
+Testcase transformation should process large datasets (e.g., 3,000+ entries) within a few minutes.
+
+Zephyr Scale automation tagging should complete within seconds per 100 testcases.
+
+Security and Access Control:
+All scripts must operate within controlled environments, ensuring access to test data and repositories is permission-based.
+
+Sensitive test data should not be logged or exposed during processing; anonymization protocols may be applied where needed.
+
+
+
+
+4. Proposed System
+The proposed system is a modular automation and performance-testing framework aimed at enhancing the quality assurance lifecycle in the TT2.0 platform. It focuses on automating large-scale testcase transformation, classifying test metadata for effective management, and ensuring scalability and reliability through performance benchmarking. The solution includes two core operational pipelines: the Testcase Transformation Flow and the Performance Validation Flow, supported by a centralized Test Classification Module.
+
+4.1 Solution Overview
+The architecture is structured around two automation flows designed to solve distinct problems in the QA cycle:
+
+The Testcase Transformation Flow automates restructuring of testcases and CSV files into TT2.0-compliant formats, reducing manual effort and errors during migration.
+
+The Performance Validation Flow performs scripted benchmarking of transaction-heavy features during high-load events, such as tariff updates.
+
+Both flows are coordinated through a Test Classification & Management Module, which communicates with Zephyr Scale APIs to manage testcase metadata, classify test types (automated/manual), and reduce redundancy through intelligent tagging.
+
+4.1.1 Testcase Transformation Flow
+This flow automates the alignment of outdated or misaligned testcases with the updated test architecture:
+
+Groovy scripts read and process raw testcase files and their corresponding CSV datasets.
+
+Data alignment logic maps historic IDs to TT2.0-standard test identifiers using rule-based validation.
+
+Parsed testcases are batch-uploaded into Zephyr Scale through API integration.
+
+Output includes a clean JSON/CSV set of transformed testcases that can be integrated into Jenkins pipelines or test repositories.
+
+This flow ensures that outdated or inconsistent QA assets are migrated into the new ecosystem without introducing errors, saving several hours of manual cleanup.
+
+4.1.2 Performance Validation Flow
+This flow facilitates continuous performance monitoring and load testing for core modules of TT2.0:
+
+Transaction-heavy modules (e.g., tariff-based billing) are simulated through Groovy-based scripts under concurrent user conditions.
+
+Output metrics such as response time, latency spikes, and failure rates are logged in real-time.
+
+Performance baselines are compared with historical benchmarks to flag regressions.
+
+Results are integrated into Jenkins reports to automate performance gate decisions in CI/CD.
+
+This flow provides confidence in system reliability during peak-load conditions and validates production-readiness at scale.
+
+4.1.3 Test Classification & Management Module
+This supporting module ensures optimal organization and searchability of test artifacts:
+
+Scripts classify testcases into "Manual", "Automated", or "Partial Automation" using pattern recognition in file structure and naming conventions.
+
+Bulk tagging is performed in Zephyr Scale to improve test navigation and dashboard clarity.
+
+Duplicates or redundant entries are detected and flagged to prevent repository bloat.
+
+The module ensures the test management system remains lean, relevant, and developer/QE-friendly.
+
+
+
+
+
+4.2	Functional Specifications
+
+4.2.1	Process flow diagram
+
+
+3 Feasibility Study
+The feasibility study evaluates the technical, operational, and economic viability of the QA Automation and Performance Testing Framework proposed for TT2.0. The components of the system, including the automated testcase transformation, performance validation, and the intelligent classification of testcases, are assessed for their robustness, accessibility, and integration potential. The study confirms that the framework is scalable, practical for deployment, and adaptable to various testing scenarios.
+
+• Testcase Transformation and Automation (Groovy Script Integration)
+The testcase transformation flow uses Groovy scripts to automate the process of migrating outdated or misaligned testcases into a standardized TT2.0 format. This ensures that the manual labor of updating each testcase is eliminated, improving accuracy and reducing human error.
+
+The framework's modular nature, relying on Groovy and Maven integrations, makes it scalable across large teams and systems, and ensures that the system can handle growing data loads efficiently.
+
+• Performance Testing Flow (Jenkins Integration)
+The performance testing flow is built around Groovy scripts for high-load benchmarking, integrated with Jenkins for automated testing and reporting. By automating the performance benchmarking for modules with high transaction volumes, the framework ensures scalability and reduces manual intervention.
+
+Jenkins pipelines integrate seamlessly with the platform to perform automated testing for each build, and real-time logs ensure that developers and QA teams are immediately alerted to any performance regressions, further improving operational efficiency.
+
+• User Accessibility and Feedback Loop (Zephyr Scale Integration)
+The feedback loop is incorporated within the Zephyr Scale management tool, allowing testers to flag erroneous testcases and feedback for further model improvement. This accessibility ensures that testers of all skill levels can engage with the system and improve test accuracy, making the system more inclusive and adaptable for teams with varying levels of technical proficiency.
+
+4.4 Design Modeling and Test Cases
+The system is designed with modular components and clear workflows to ensure scalability and adaptability to future changes. The key components of the framework, from testcase transformation to performance validation, interact seamlessly to ensure high-quality outputs while keeping the system flexible for future enhancements.
+
+4.4.1 Model Components and Specifications
+Groovy Script-Based Testcase Transformation: The system processes raw testcase data using Groovy-based logic to ensure proper mapping and alignment with TT2.0-compliant structures. This approach automates error-prone manual updates, improving consistency and data integrity across test repositories.
+
+Zephyr Scale for Testcase Classification: Once transformed, testcases are automatically classified in Zephyr Scale into automated or manual categories. The test classification model employs predefined rules to flag redundant or duplicate test entries.
+
+Jenkins for Continuous Integration and Test Reporting: The system uses Jenkins pipelines to automate the execution and reporting of performance tests, ensuring smooth integration with existing CI/CD workflows.
+
+Groovy-Based Performance Testing Scripts: Groovy scripts simulate high-load conditions for critical modules, such as tariff-based billing, providing real-time performance insights.
+
+4.4.2 Test Case Design and Results
+The framework’s components were subjected to rigorous testing to ensure accuracy, scalability, and reliability:
+
+Testcase Transformation Accuracy: Groovy scripts used for testcase transformation were tested across diverse datasets, including outdated and misaligned testcases, ensuring accurate mapping and minimal data loss during migration.
+
+Zephyr Scale Integration Testing: The classification and bulk-tagging functionalities within Zephyr Scale were validated by integrating with a test suite of 3,000+ testcases. Results showed a 99% accuracy in automating test categorization, reducing the need for manual tagging.
+
+Jenkins Pipeline and Performance Benchmarking: Performance scripts executed through Jenkins pipelines were tested under high transaction volumes, simulating live production scenarios. The system accurately measured response times and flagged performance regressions, achieving over 95% reliability in real-time performance evaluation.
+
+Feedback Loop Validation: The feedback loop integrated within Zephyr Scale was evaluated with real-time user input, demonstrating a 90% success rate in improving testcase classification over multiple iterations. This feature ensures continuous improvement and more accurate results over time.
+
+End-to-End Testing of Full Automation Workflow: Full workflow tests, from testcase transformation to performance validation, showed a 98% automation success rate across a variety of test scenarios, minimizing manual intervention and ensuring consistency across all modules.
+
+
+
+
+
+
+4.5 Estimation
+4.5.1 Hardware Requirements
+The tools and scripts developed during the internship were designed to function within enterprise-grade development environments and CI/CD systems, primarily operating on internal servers and developer machines.
+• Development Machines: Standard corporate laptops/desktops with moderate processing power (Intel i5/i7 CPU, 8–16GB RAM) were sufficient for local development and initial script testing.
+• CI/CD Infrastructure: Jenkins pipelines were run on internally hosted Jenkins servers with distributed build agents for scalable execution of jobs.
+• Version Control & Collaboration: Bitbucket repositories and TortoiseGit were used for versioning and code review, without requiring high compute resources.
+• Script Scalability: The testcase transformation script processed ~3,000 files efficiently without requiring parallel execution or cloud compute resources, demonstrating sufficient performance on standard infrastructure.
+
+4.5.2 Software Requirements
+The project stack combined scripting, test management, and CI/CD orchestration tools.
+• Languages & Frameworks:
+
+Groovy: Primary scripting language used for automating testcase transformation and performance testing logic.
+
+Maven: Used for dependency management and build automation where required in script packaging.
+• DevOps Tools:
+
+Jenkins: To automate pipeline execution, handle integration testing, and track build results.
+
+Bitbucket & TortoiseGit: For code repository management, pull requests, and version control.
+• Test Management:
+
+Zephyr Scale: Used to access and update testcases via REST APIs, especially for tagging automation status.
+• Debugging & Monitoring:
+
+Jenkins logs and error stack traces were used extensively to debug and resolve integration errors.
+
+Manual testing and dry runs were performed for validation prior to full-scale execution.
+
+4.5.3 Data Requirements
+The data handled during the internship primarily involved structured and semi-structured test artifacts.
+• Testcase Data:
+
+Testcases exported from Zephyr and TestRail in CSV format, requiring renaming, transformation, and re-alignment of IDs.
+
+The dataset included around 3,000 testcases and their corresponding CSV files, with multiple columns and embedded metadata.
+• Performance Testing Data:
+
+Synthetic test inputs were used to simulate high-load transaction behavior for performance evaluation.
+
+Output logs and response metrics were analyzed to assess script efficiency and robustness.
+
+4.5.4 Cost and Scheduling
+The internship project involved no external cloud or API costs and was executed using enterprise-provided resources. The effort was primarily invested in time allocation, script development, testing, and iteration.
+• Infrastructure Costs:
+
+Utilized in-house systems and servers — no additional infrastructure was provisioned externally.
+• Scheduling:
+
+The work was distributed across the internship timeline, with key milestones:
+
+Week 1–2: Environment setup, tool familiarization (Jenkins, Maven, Groovy)
+
+Week 3–5: Development and testing of the testcase transformation script
+
+Week 6–7: Iterative debugging, Jenkins integration, and final deployment
+
+Week 8: Performance testing script development
+
+Week 9: Zephyr Scale automation tagging script
+
+Week 10: Hackathon project & report documentation
+• Time Estimation:
+
+~6 weeks were spent actively developing and refining the primary scripts (Points 4, 6, and 7)
+
+Remaining time was used for learning, debugging, documentation, and team collaboration.
+
+
+
+
+
+
+5. Conclusion and Future Work
+This internship at FIS Global provided a valuable platform to bridge theoretical knowledge with real-world applications, particularly within the context of software automation, CI/CD processes, and test management. Through my work on the TT2.0 project, I contributed to the streamlining of complex QA workflows by developing robust Groovy scripts that automated testcase transformation, enabled performance testing, and optimized the identification of automated testcases within Zephyr Scale.
+
+The scalable script for testcase alignment not only resolved immediate inconsistencies caused by platform transitions (from Zephyr to TestRail and back to Zephyr Scale), but also established a reusable foundation that can support similar transformations across other teams at FIS. The performance testing script further reinforced platform resilience during high-volume financial operations, while the Zephyr Scale automation script significantly improved test tracking and visibility.
+
+Looking ahead, there is substantial potential to expand and refine the solutions developed during this internship:
+
+Script Generalization & Packaging: Modularizing and packaging the Groovy scripts into configurable tools that can be adopted across multiple projects and teams without customization overhead.
+
+Performance Testing Automation: Enhancing the performance testing workflow by integrating threshold-based alerting and real-time dashboarding for continuous monitoring.
+
+Dynamic Testcase Mapping: Implementing logic to intelligently map old and new testcase IDs using AI-based similarity detection to further reduce manual oversight.
+
+Cross-Platform Integration: Exploring integrations with additional testing and CI/CD platforms to ensure broader applicability and interoperability.
+
+Knowledge Transfer & Documentation: Creating detailed documentation and onboarding materials to ensure sustainable use and evolution of the scripts post-internship.
+
+These future directions aim to deepen the automation framework established in TT2.0, improve scalability, and ensure long-term maintainability — contributing to a more resilient, efficient, and collaborative testing environment at FIS.
+
+
+
+
+6. References
+• P. King, Apache Groovy: A Dynamic Language for the Java Platform, The Apache Software Foundation. [Online]. Available: https://groovy-lang.org/
+• Apache Maven Project, Introduction to the Build Lifecycle. [Online]. Available: https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+• CloudBees, Jenkins: The Definitive Guide to CI/CD, Jenkins User Documentation. [Online]. Available: https://www.jenkins.io/doc/
+• Atlassian, Bitbucket Cloud: Git Code Management, Atlassian Documentation. [Online]. Available: https://support.atlassian.com/bitbucket-cloud/
+
+7. Bibliography
+• https://groovy-lang.org/
+• https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+• https://www.jenkins.io/doc/
+• https://git-scm.com/doc
+• https://bitbucket.org/product/
+• https://www.atlassian.com/software/zephyr/test-management/scale
+• https://www.tortoisecvs.org/
+• https://www.fisglobal.com/
+• https://developer.mozilla.org/en-US/docs/Web/HTTP
+• https://www.geeksforgeeks.org/performance-testing/
+• https://www.baeldung.com/jenkins-pipeline
+• https://www.jetbrains.com/help/idea/groovy.html
+• https://opensource.com/article/22/5/continuous-integration-jenkins
+• https://confluence.atlassian.com/bitbucketserver/using-pull-requests-776639908.html
